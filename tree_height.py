@@ -2,12 +2,10 @@ import sys
 import threading
 import numpy
 
-
 class Node:
     def __init__(self, value):
         self.value = value
         self.children = []
-
 
 def build_tree(n, parents):
     nodes = [Node(i) for i in range(n)]
@@ -22,7 +20,6 @@ def build_tree(n, parents):
 
     return root
 
-
 def get_height(root):
     if not root.children:
         return 1
@@ -34,31 +31,28 @@ def get_height(root):
 
     return max_depth + 1
 
-
 def compute_height(n, parents):
     root = build_tree(n, parents)
     return get_height(root)
 
-
 def main():
-    # Implement input from keyboard and from files
-    h = input().strip()
-    if h == "I":
-        n = int(input())
-        parents = list(map(int, input().split()))
+    # implement input form keyboard and from files
+    input_type = input().strip()
+    
+    if input_type == 'I':
+        n = int(input().strip())
+        parents = list(map(int, input().strip().split()))
     else:
-        # Check for invalid input file name
-        if "a" in h:
-            print("Nepareizs")
+        filename = input().strip()
+        if 'a' in filename:
+            print('Nepareizs')
             return
-
-        # Load input from file
-        with open("test/" + h, "r") as f:
+        with open(f'test/{filename}') as f:
             n = int(f.readline().strip())
-            parents = list(map(int, f.readline().split()))
-
+            parents = list(map(int, f.readline().strip().split()))
+    
+    # call the function and output its result
     print(compute_height(n, parents))
-
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
