@@ -45,7 +45,7 @@ def main():
         if "a" in h :
             print("Nepareizs")
             return
-        with open ("test/" + h, 'r') as f:
+        with open ("test/" + h) as f:
             n = f.readline()
             parents  = list(map(int, f.readline().split()))
     print(compute_height(n, parents))
