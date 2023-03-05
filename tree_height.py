@@ -42,7 +42,12 @@ def main():
         
     else :
         h = int(input())
-        
+        if "a" in h :
+            print("Nepareizs")
+            return
+        with open ("test/" + h, "r") as f:
+            n = f.readline()
+            parents  = list(map(int, f.readline().split()))
     print(compute_height(n, parents))
 
 # In Python, the default limit on recursion depth is rather low,
