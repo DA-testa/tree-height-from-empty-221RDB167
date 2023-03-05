@@ -41,7 +41,7 @@ def main():
         parents = list(map(int, input().split()))
         
     else :
-        h = int(input())
+        h = input()
         if "a" in h :
             print("Nepareizs")
             return
