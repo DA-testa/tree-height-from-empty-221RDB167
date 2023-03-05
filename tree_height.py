@@ -58,6 +58,6 @@ def main():
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem.
-sys.setrecursionlimit(10**7)
-
+sys.setrecursionlimit(10**7)  # max depth of recursion
+threading.stack_size(2**27)   # new thread will get stack of such size
 main()
